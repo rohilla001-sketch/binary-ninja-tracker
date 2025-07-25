@@ -1,21 +1,40 @@
 {
   "name": "binary-ninja-tracker",
   "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --config client/vite.config.ts"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "ts-node-dev api/index.ts",
+    "client": "vite --config client/vite.config.ts",
+    "build": "vite build --config client/vite.config.ts",
+    "start": "node api/index.js"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "localforage": "^1.10.0",
+    "lucide-react": "^0.263.0",
+    "nanoid": "^5.0.9",
+    "next-themes": "^0.4.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.0",
+    "recharts": "^2.15.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.1",
+    "wouter": "^3.3.5",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "vite": "^4.5.0",
     "@vitejs/plugin-react": "^4.0.0",
     "typescript": "^5.3.3",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.30"
+    "postcss": "^8.4.30",
+    "concurrently": "^8.0.1",
+    "ts-node-dev": "^2.0.0"
   }
 }
